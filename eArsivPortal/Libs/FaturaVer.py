@@ -3,16 +3,18 @@
 from uuid import uuid4
 
 def fatura_ver(
-    tarih:str         = "07/10/1995",
-    saat:str          = "14:28:37",
+    tarih:str         = "",
+    saat:str          = "",
     vkn_veya_tckn:str = "11111111111",
-    ad:str            = "Ömer Faruk",
-    soyad:str         = "Sancak",
+    ad:str            = "",
+    soyad:str         = "",
     unvan:str         = "",
     vergi_dairesi:str = "",
-    urun_adi:str      = "Python Yazılım Hizmeti",
+    urun_adi:str      = "",
     fiyat:int | float = 100,
-    fatura_notu:str   = "— QNB Finansbank —\nTR70 0011 1000 0000 0118 5102 59\nÖmer Faruk Sancak"
+    fatura_notu:str   = ""
+    miktar:str        = "",
+    adres:str         = "",    #adres ve ürün miktarı confige eklenmiştir
 ):
     # matrah = fiyat / 1.18     # ! %18
     matrah = fiyat / 1.20       # ! %20
@@ -36,7 +38,7 @@ def fatura_ver(
         "kasabaKoy"         : "",
         "vergiDairesi"      : vergi_dairesi,
         "ulke"              : "Türkiye",
-        "bulvarcaddesokak"  : "",
+        "bulvarcaddesokak"  : adres,
         "irsaliyeNumarasi"  : "",
         "irsaliyeTarihi"    : "",
         "mahalleSemtIlce"   : "",
@@ -51,7 +53,7 @@ def fatura_ver(
         "malHizmetTable"    : [
             {
                 "malHizmet"                     : urun_adi,
-                "miktar"                        : 1,
+                "miktar"                        : miktar,
                 "birim"                         : "C62",
                 "birimFiyat"                    : f"{round(matrah, 2)}",
                 "fiyat"                         : f"{round(matrah, 2)}",
