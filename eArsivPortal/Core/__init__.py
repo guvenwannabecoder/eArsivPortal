@@ -143,6 +143,8 @@ class eArsivPortal:
         urun_adi:str      = "Python Yazılım Hizmeti",
         fiyat:int | float = 100,
         fatura_notu:str   = "— QNB Finansbank —\nTR70 0011 1000 0000 0118 5102 59\nÖmer Faruk Sancak"
+        miktar:str        = "",
+        adres:str         = "", 
     ) -> BaseModel:
         kisi_bilgi = self.kisi_getir(vkn_veya_tckn)
 
@@ -157,6 +159,8 @@ class eArsivPortal:
             urun_adi      = urun_adi,
             fiyat         = fiyat,
             fatura_notu   = fatura_notu
+            miktar:       = miktar,
+            adres         = adres, 
         )
 
         while True:
